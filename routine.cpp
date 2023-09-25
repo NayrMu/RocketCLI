@@ -17,10 +17,20 @@ void Routine::parseInput(std::vector<std::string> userInput) {
 		this->engineStart();
 	}
 	else if (cmdString == "throttleUp") {
-		this->throttleUp(userInput[1]);
+		if (userInput.size() > 1) {
+			this->throttleUp(userInput[1]);
+		}
+		else {
+			std::cout << ":! IMPROPER COMMAND " << std::endl;
+		}
 	}
 	else if (cmdString == "throttleDown") {
-		this->throttleDown(userInput[1]);
+		if (userInput.size() > 1) {
+			this->throttleDown(userInput[1]);
+		}
+		else {
+			std::cout << ":! IMPROPER COMMAND " << std::endl;
+		}
 	}
 
 }
@@ -35,7 +45,7 @@ void Routine::engineStart() {
 void Routine::throttleUp(std::string dThrottle) {
 	double inputThrottle = roundToDecimalPlaces(std::stod(dThrottle), 1);
 	if (!(m_rocketRunTime->getIsRunning()) || inputThrottle < 0) { // Checks the rocket engine is not started or that the input is incorrect
-		std::cout << "!! A CRITICAL ERROR HAS OCCURRED !!" << std::endl;
+		std::cout << "!! A CRITICAL ERROR HAS OCCURRED" << std::endl;
 		return;
 	}
 
@@ -52,7 +62,7 @@ void Routine::throttleUp(std::string dThrottle) {
 void Routine::throttleDown(std::string dThrottle) {
 	double inputThrottle = roundToDecimalPlaces(std::stod(dThrottle), 1) * -1;
 	if (!(m_rocketRunTime->getIsRunning()) || inputThrottle > 0) { // Makes sure the rocket engine is either not start or incorrect input
-		std::cout << "!! A CRITICAL ERROR HAS OCCURRED !!" << std::endl;
+		std::cout << "!! A CRITICAL ERROR HAS OCCURRED" << std::endl;
 		return;
 	}
 

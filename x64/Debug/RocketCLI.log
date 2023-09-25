@@ -1,2 +1,5 @@
-﻿  rocketengine.cpp
+﻿  commandcontroller.cpp
+  routine.cpp
+  view.cpp
+  Generating Code...
   RocketCLI.vcxproj -> C:\Users\rkmun\source\repos\RocketCLI\x64\Debug\RocketCLI.exe

@@ -48,7 +48,7 @@ Commands CmdControl::parseCommand(std::string userInput) {
 		delete startCmd;
 	}
 	else { // Command not found
-		std::cout << "!: IMPROPER COMMAND :!" << std::endl; 
+		std::cout << ":! IMPROPER COMMAND" << std::endl; 
 	}
 
 	return currentCommand;

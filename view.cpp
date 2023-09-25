@@ -20,13 +20,14 @@ void View::parseInput(std::vector<std::string> userInput) {
 			std::cout << ":> z POSITION: " << m_rocketRunTime->getZPos() << std::endl;
 		}
 		else if (userInput[i] == "velocity") {
-			std::cout << ":> Velocity: " << m_rocketRunTime->getVelocity() << std::endl;
+			std::cout << ":> VELOCITY: " << m_rocketRunTime->getVelocity() << std::endl;
 		}
 		else if (userInput[i] == "thrust") {
-			std::cout << ":> Thrust: " << m_rocketRunTime->getThrust() << std::endl;
+			std::cout << ":> THRUST: " << m_rocketRunTime->getThrust() << std::endl;
 		}
 		else if (userInput[i] == "throttle") {
-			std::cout << ":> Throttle: " << m_rocketRunTime->getThrottle() << std::endl;
+			std::cout << ":> THROTTLE: " << m_rocketRunTime->getThrottle() << std::endl;
 		}
+		else { std::cout << ":! DATAPOINT UNKNOWN" << std::endl; }
 	}	
 }
