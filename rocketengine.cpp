@@ -29,12 +29,12 @@ void RocketEngine::updateLoop() {
 		while (isRunning) {
 			setThrust(throttle); // Always checking for thrust updates
 			if (thrust > 0) { // If thrust is not going to cause divide by zero error
-				double dV = (thrust * 0.01) / 1000;
+				double dV = (thrust * 0.01) / 1000; // dV is deltaV or change in velocity
 				setVelocity(dV);
 				setXPos(velocity);
 			}
 			else { // Else do this
-				double dV = 0;
+				double dV = 0; // dV is deltaV or change in velocity
 				setVelocity(dV);
 				setXPos(velocity);
 			}
@@ -70,21 +70,21 @@ double RocketEngine::getThrust() {
 
 // Setter
 void RocketEngine::setXPos(double dX) {
-	std::lock_guard<std::mutex> lock(xPosMutex);
+	std::lock_guard<std::mutex> lock(xPosMutex); // Multi-threading insurance
 	xPos += dX;
 }
 void RocketEngine::setIsRunning(bool isRun) {
 	isRunning = isRun;
 }
 void RocketEngine::setThrottle(double dThrottle) {
-	std::lock_guard<std::mutex> lock(throttleMutex);
+	std::lock_guard<std::mutex> lock(throttleMutex); // Multi-threading insurance
 	throttle += dThrottle;
 }
-void RocketEngine::setVelocity(double dV) {
-	std::lock_guard<std::mutex> lock(velocityMutex);
+void RocketEngine::setVelocity(double dV) { 
+	std::lock_guard<std::mutex> lock(velocityMutex); // Multi-threading insurance
 	velocity += dV;
 }
 void RocketEngine::setThrust(double dThrust) {
-	std::lock_guard<std::mutex> lock(thrustMutex);
+	std::lock_guard<std::mutex> lock(thrustMutex); // Multi-threading insurance
 	thrust = (100 * dThrust);
 }

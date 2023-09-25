@@ -49,7 +49,7 @@ private:
 	double velocity;
 	double thrust;
 	double throttle;
-	std::mutex xPosMutex, yPosMutex, zPosMutex, velocityMutex, throttleMutex, thrustMutex;
+	std::mutex xPosMutex, yPosMutex, zPosMutex, velocityMutex, throttleMutex, thrustMutex; // For handling multiple threads using the same variables
 
 
 

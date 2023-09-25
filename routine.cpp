@@ -34,7 +34,7 @@ void Routine::engineStart() {
 // Increases the throttle by specified amount ie: input(50) throttle(25)->(75) ex: throttleUp 50
 void Routine::throttleUp(std::string dThrottle) {
 	double inputThrottle = roundToDecimalPlaces(std::stod(dThrottle), 1);
-	if (!(m_rocketRunTime->getIsRunning()) || inputThrottle < 0) {
+	if (!(m_rocketRunTime->getIsRunning()) || inputThrottle < 0) { // Checks the rocket engine is not started or that the input is incorrect
 		std::cout << "!! A CRITICAL ERROR HAS OCCURRED !!" << std::endl;
 		return;
 	}
@@ -51,7 +51,7 @@ void Routine::throttleUp(std::string dThrottle) {
 // Decreases the throttle by specified amount ie: input(50) throttle(75)->(25) ex: throttleDown 50
 void Routine::throttleDown(std::string dThrottle) {
 	double inputThrottle = roundToDecimalPlaces(std::stod(dThrottle), 1) * -1;
-	if (!(m_rocketRunTime->getIsRunning()) || inputThrottle > 0) {
+	if (!(m_rocketRunTime->getIsRunning()) || inputThrottle > 0) { // Makes sure the rocket engine is either not start or incorrect input
 		std::cout << "!! A CRITICAL ERROR HAS OCCURRED !!" << std::endl;
 		return;
 	}
